@@ -1,0 +1,8 @@
+{
+  "name": "mooshimeter-webapp",
+  "version": "1.0",
+  "starter": "mooshimeter-webapp",
+  "dependencies": {
+    "mooshimeter-webapp": "0.0.1"
+  }
+}

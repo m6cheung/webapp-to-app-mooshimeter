@@ -1,0 +1,7 @@
+{
+  "name": "mooshimeter-webapp",
+  "version": "0.0.1",
+  "main": "index.html",
+  "src-folder": "./src/",
+  "output-folder": "./dist-zip/"
+}
