@@ -26,7 +26,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.mooshim.michaelC.Mooshimeter</string>
+			<string>com.mooshim.omer.Mooshimeter</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>mooshimeter</string>
@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1229</string>
+	<string>1244</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>

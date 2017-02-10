@@ -44,15 +44,15 @@
         if(self.max==0) {
             return self.units;
         }
-
+    
         static NSString* prefixes[] = {@"n",@"\u03bc",@"m",@"",@"k",@"M",@"G"};
         float lval = self.value;
         if(fabs(lval) > 1.2*self.max) {
-            return @"OUT OF RANGE";
+            return @"OUT_OF_RANGE";
         }
         NSMutableString* rval = [[NSMutableString alloc] init];
         if(lval>=0) {
-            [rval appendString:@" "]; // Space for neg sign
+            [rval appendString:@""]; // Space for neg sign
         }
         [rval appendString:[NSString stringWithFormat:self.format, lval*self.format_mult]];
         [rval appendString:prefixes[self.format_prefix]];

@@ -25,11 +25,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #import "LoggingPreferencesVC.h"
 #import "UIView+Toast.h"
 
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+
 @implementation MeterVC
 
 ////////////////////
 // Lifecycle
 ////////////////////
+
+extern NSString *ch1_value = @"No value";
+extern NSString *ch2_value = @"No value";
 
 -(instancetype)initWithMeter:(MooshimeterDeviceBase *)meter{
     self = [super init];
@@ -74,6 +80,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     self.graph_button            = mb(3,2,3,1,graph_button_press);
 
     [self.graph_button setTitle:@"GRAPH" forState:UIControlStateNormal];
+    
 
     [sv addSubview:self.math_label];
     [sv addSubview:self.math_button];
@@ -185,21 +192,81 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         [WidgetFactory setButtonSubtitle:self.rate_button subtitle:@"MANUAL"];
     }
 }
+
+
+// We're replacing logging functionality with sending data function
 -(void)logging_button_press {
-    SmartNavigationController * gnav = [SmartNavigationController getSharedInstance];
-    LoggingPreferencesVC * vc = [[LoggingPreferencesVC alloc] initWithMeter:self.meter];
-    [gnav pushViewController:vc animated:YES];
+    //SmartNavigationController * gnav = [SmartNavigationController getSharedInstance];
+    //LoggingPreferencesVC * vc = [[LoggingPreferencesVC alloc] initWithMeter:self.meter];
+    //[gnav pushViewController:vc animated:YES];
+    [self sendDataToReferenceApp];
 }
+
 -(void)logging_button_refresh {
     int s = [self.meter getLoggingStatus];
     NSString* title, *subtitle;
     bool logging_ok = s==0;
-    title = [self.meter getLoggingOn]?@"Logging:ENABLED":@"Logging:DISABLED";
-    subtitle = [self.meter getLoggingStatusMessage];
+    //title = [self.meter getLoggingOn]?@"Logging:ENABLED":@"Logging:DISABLED";
+    title = @"Send Data";
+    //subtitle = [self.meter getLoggingStatusMessage];
+    subtitle = @"Send data to ref app";
     [self.logging_button setBackgroundColor:logging_ok?[UIColor whiteColor]:[UIColor lightGrayColor]];
     [self.logging_button setTitle:title forState:UIControlStateNormal];
     [WidgetFactory setButtonSubtitle:self.logging_button subtitle:subtitle];
 }
+
+-(void) openAppUrl:(NSString*)urlScheme {
+    NSURL *url = [[NSURL alloc] initWithString:urlScheme];
+    if([[UIApplication sharedApplication] canOpenURL:url]) {
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+                if (success) {
+                    NSLog(@"Opened \(urlScheme): \(success)");
+                }
+            }];
+            
+        } else {
+            [[UIApplication sharedApplication] openURL:url];
+            NSLog(@"Opened \(urlScheme): \(success)");
+        }
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Request"
+                                                                       message:@"URL invalid, app must be downloaded to be opened"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:dismiss];
+        
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+}
+
+-(void) sendDataToReferenceApp
+{
+    /*
+     print("passing text to wide-receiver");
+     if textToPass.text == "" {
+     let alertController = UIAlertController(title: "Invalid Pass", message:
+     "Please enter a text to be passed to the wide-receiver", preferredStyle: UIAlertControllerStyle.alert)
+     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+     
+     self.present(alertController, animated: true, completion: nil)
+     return;
+     
+     }
+     let urlPass: String = "catchText://" + self.textToPass.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+     
+     openAppURL(urlScheme: urlPass);
+     */
+    NSString *urlScheme = [NSString stringWithFormat:@"%@%@", @"refapp://", ch1_value];
+    [self openAppUrl:urlScheme];
+}
+
+
+
+
 -(void)depth_button_press {
     [PopupMenu displayOptionsWithParent:self.view title:@"Buffer Depth" options:[self.meter getBufferDepthList] cancel:@"AUTORANGE" callback:^(int i) {
         NSLog(@"Received %d", i);
@@ -306,9 +373,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         switch(c) {
             case CH1:{
                 [self.ch1_view value_label_refresh:val];
+                if ([val.units  isEqual: @"Ω"]) {
+                    val.units = @"ohms";
+                }
+                ch1_value = [val toString];
                 break;}
             case CH2:{
                 [self.ch2_view value_label_refresh:val];
+                if ([val.units  isEqual: @"Ω"]) {
+                    val.units = @"ohms";
+                }
+                ch2_value = [val toString];
                 // Handle autoranging
                 if([self.meter applyAutorange]) {
                     // Something changed, refresh to be safe
@@ -379,7 +454,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             {[GCD asyncMain:^{[self.ch2_view zero_button_refresh];}];}
             break;
         case MATH:
-            NSLog(@"IMPOSSIBRUUU");
+            NSLog(@"IMPOSSIBRUUUU");
             break;
     }
 }

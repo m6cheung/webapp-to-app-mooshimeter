@@ -763,7 +763,7 @@ int24_test to_int24_test(long arg) {
     [descriptor addRange:@"300mV" converter:[self  makeSimpleConverter:1 pga:PGA_GAIN_4 ] max:0.3 gain:PGA_GAIN_4  gpio:GPIO_IGNORE isrc:ISRC_OFF];
     [descriptor addRange:@"1.2V"  converter:[self  makeSimpleConverter:1 pga:PGA_GAIN_1 ] max:1.2 gain:PGA_GAIN_1  gpio:GPIO_IGNORE isrc:ISRC_OFF];
     [chooser add:descriptor];
-    descriptor = [[LegacyInputDescriptor alloc] initWithName:@"RESISTANCE" units:@"Ω" input:RESISTANCE is_ac:NO];
+    descriptor = [[LegacyInputDescriptor alloc] initWithName:@"RESISTANCE" units:@"Ohm" input:RESISTANCE is_ac:NO];
     switch (meter_info.pcb_version) {
         case 7:
             [descriptor addRange:@"1kΩ"   converter:[self makeSimpleConverter:(1/100e-6f) pga:PGA_GAIN_12] max:1e3 gain:PGA_GAIN_12 gpio:GPIO_IGNORE isrc:ISRC_HIGH];
@@ -796,7 +796,7 @@ int24_test to_int24_test(long arg) {
     [descriptor addRange:@"350K" converter:temp_converter max:350 gain:PGA_GAIN_1 gpio:GPIO_IGNORE isrc:ISRC_IGNORE];
     [chooser add:descriptor];
 
-    descriptor = [[LegacyInputDescriptor alloc] initWithName:@"CONTINUITY" units:@"Ω" input:RESISTANCE is_ac:NO];
+    descriptor = [[LegacyInputDescriptor alloc] initWithName:@"CONTINUITY" units:@"Ohm" input:RESISTANCE is_ac:NO];
     Lsb2NativeConverter res_converter;
     switch (meter_info.pcb_version) {
         case 7:

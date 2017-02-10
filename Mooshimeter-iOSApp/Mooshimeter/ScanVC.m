@@ -87,58 +87,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                          }];
 }
 
--(void) openAppUrl:(NSString*)urlScheme {
-    NSURL *url = [[NSURL alloc] initWithString:urlScheme];
-    if([[UIApplication sharedApplication] canOpenURL:url]) {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
-                if (success) {
-                    NSLog(@"Opened \(urlScheme): \(success)");
-                }
-            }];
-            
-        } else {
-            [[UIApplication sharedApplication] openURL:url];
-            NSLog(@"Opened \(urlScheme): \(success)");
-        }
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Request"
-                                                                       message:@"URL invalid, app must be downloaded to be opened"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:dismiss];
-        
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    
-}
-
--(void) sendDataToReferenceApp
-{
-    /*
-    print("passing text to wide-receiver");
-    if textToPass.text == "" {
-        let alertController = UIAlertController(title: "Invalid Pass", message:
-                                                "Please enter a text to be passed to the wide-receiver", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-        return;
-        
-    }
-    let urlPass: String = "catchText://" + self.textToPass.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-    
-    openAppURL(urlScheme: urlPass);
-    */
-    
-    
-    NSString *urlScheme = @"refapp://wassuppp";
-    [self openAppUrl:urlScheme];
-}
-
-
 -(void)reloadData {
     [GCD asyncMain:^{
         LGCentralManager* c = [LGCentralManager sharedInstance];
@@ -209,11 +157,8 @@ void discoverRecursively(NSArray* services,uint32 i, LGPeripheralDiscoverService
     
     self.scanButton = [self makeButton:[self makeRectInGrid:0 row_off:7 width:1 height:1] cb:@selector(scan)];
     [self.scanButton setTitle:@"Start Scan" forState:UIControlStateNormal];
-
-    self.sendDataButton = [self makeButton:[self makeRectInGrid:0 row_off:6 width:1 height:1] cb:@selector(sendDataToReferenceApp)];
-    [self.sendDataButton setTitle:@"Send Data" forState:UIControlStateNormal];
     
-    self.tableView  = [[UITableView alloc] initWithFrame:[self makeRectInGrid:0 row_off:0 width:1 height:6]];
+    self.tableView  = [[UITableView alloc] initWithFrame:[self makeRectInGrid:0 row_off:0 width:1 height:7]];
     [self.content_view addSubview:self.tableView];
 
     [self.tableView registerClass:[ScanTableViewCell class] forCellReuseIdentifier:@"Cell"];

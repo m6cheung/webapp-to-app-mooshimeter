@@ -239,7 +239,6 @@
 		39079DBAF75A377987D53CA5 /* sig_icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 3907997AD5AD4329B2559B4A /* sig_icon_29.png */; };
 		39079DD015C803AAC86BB1BA /* sig_icon_35.png in Resources */ = {isa = PBXBuildFile; fileRef = 3907982CE9CC15BA206C7BE6 /* sig_icon_35.png */; };
 		39079DE010AD9981451179A4 /* SimulatedMooshimeterDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 390794B6A011B030351FBC50 /* SimulatedMooshimeterDevice.m */; };
-		39079DF2828F8CEC2DB5F96B /* OADProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390799B173A06AF4FCB0B8E9 /* OADProgressViewController.m */; };
 		39079DF67084ACF0C457B838 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39079AB63FA5B35B86A17C1F /* MessageUI.framework */; };
 		39079DF76B9E639E33E13AC4 /* bat_icon_34.png in Resources */ = {isa = PBXBuildFile; fileRef = 39079E1B7E75F651BDBD899A /* bat_icon_34.png */; };
 		39079E0999941EE79F9B4E27 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 3907912F2201BCC888C82B80 /* share.png */; };
@@ -287,6 +286,7 @@
 		4ABE54161A07FF0000277456 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C63853017D694DC00D3FB31 /* CoreGraphics.framework */; };
 		4ADDC5D51A882CFB00FC5093 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADDC5D41A882CFB00FC5093 /* Accelerate.framework */; };
 		C452CADFED86FE11236288C3 /* libPods-MooshimeterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB4099884775A8CDF75D11C /* libPods-MooshimeterTests.a */; };
+		FC0869B71E4E6ABB00628589 /* OADProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390799B173A06AF4FCB0B8E9 /* OADProgressViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1476,10 +1476,10 @@
 				ORGANIZATIONNAME = mooshim;
 				TargetAttributes = {
 					0C63852817D694DC00D3FB31 = {
-						DevelopmentTeam = Y2SU2GT3Q6;
+						DevelopmentTeam = HG95VB7FN4;
 					};
 					0C63855417D694DD00D3FB31 = {
-						DevelopmentTeam = Y2SU2GT3Q6;
+						DevelopmentTeam = HG95VB7FN4;
 					};
 				};
 			};
@@ -1868,6 +1868,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0869B71E4E6ABB00628589 /* OADProgressViewController.m in Sources */,
 				4AA9EA301A12B54E0031C12B /* LGService.m in Sources */,
 				4AA9EA2D1A12B54E0031C12B /* LGCentralManager.m in Sources */,
 				0C63853917D694DC00D3FB31 /* main.m in Sources */,
@@ -1895,7 +1896,6 @@
 				3907941EDF611FB976BD67B3 /* OADDevice.m in Sources */,
 				39079FC63203154EF45C8BD9 /* BLEUtility.m in Sources */,
 				3907966EE44A52E361BED711 /* OADProfile.m in Sources */,
-				39079DF2828F8CEC2DB5F96B /* OADProgressViewController.m in Sources */,
 				3907965CB1E6014EB8233ECB /* WidgetFactory.m in Sources */,
 				390790239F21E2B3F442A193 /* BaseVC.m in Sources */,
 				390792E6672DBC411A1AE09A /* GraphVC.m in Sources */,
@@ -1997,7 +1997,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2035,7 +2035,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
@@ -2055,19 +2055,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
+				DEVELOPMENT_TEAM = HG95VB7FN4;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mooshimeter/Mooshimeter-Prefix.pch";
 				INFOPLIST_FILE = "Mooshimeter/Mooshimeter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.michaelC.Mooshimeter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.omer.Mooshimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2086,18 +2086,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
+				DEVELOPMENT_TEAM = HG95VB7FN4;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mooshimeter/Mooshimeter-Prefix.pch";
 				INFOPLIST_FILE = "Mooshimeter/Mooshimeter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.michaelC.Mooshimeter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.omer.Mooshimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2113,7 +2113,7 @@
 			baseConfigurationReference = 891A3261855E4CDC619B6552 /* Pods-MooshimeterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mooshimeter.app/Mooshimeter";
-				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
+				DEVELOPMENT_TEAM = HG95VB7FN4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -2133,7 +2133,7 @@
 			baseConfigurationReference = 555DD33A74E4290328747860 /* Pods-MooshimeterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mooshimeter.app/Mooshimeter";
-				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
+				DEVELOPMENT_TEAM = HG95VB7FN4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
