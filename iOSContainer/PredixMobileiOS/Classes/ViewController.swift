@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIWebViewDelegate, PredixAppWindowProtoc
     @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet var spinnerLabel: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     internal var isAuthenticationView : Bool = false
     
     var webViewFinishedLoad : (()->())?
@@ -96,6 +97,10 @@ class ViewController: UIViewController, UIWebViewDelegate, PredixAppWindowProtoc
 
         Logger.trace("Web view finished load")
         self.spinner.stopAnimating()
+        
+        if(appDelegate.isLoggedIn) {
+            appDelegate.displayDataFromURL(url: appDelegate.urlWithData!);
+        }
         if let webViewFinishedLoad = self.webViewFinishedLoad
         {
             self.webViewFinishedLoad = nil

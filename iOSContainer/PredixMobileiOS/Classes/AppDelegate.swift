@@ -11,11 +11,14 @@ import PredixMobileSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var urlWithData: URL?
+    var isLoggedIn = false;
     var window: UIWindow?
     var authenticationViewController : UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
 
         #if DEBUG
@@ -95,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return authVC as PredixAppWindowProtocol
             
             }, dismissAuthentication: { (authenticationWindow) -> () in
-                
+                self.isLoggedIn = true;
                 if let authVC = unownedSelf.authenticationViewController
                 {
                     unownedSelf.authenticationViewController = nil
@@ -156,15 +159,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if(self.isLoggedIn) {
+            displayDataFromURL(url: url);
+            return true
+        } else {
+            self.urlWithData = url;
+            return true;
+        }
+    }
+    
+    func displayDataFromURL(url: URL) {
         var alertView: UIAlertController?
         let text = url.host?.removingPercentEncoding
         alertView = UIAlertController(title: "From Mooshimeter", message: text!, preferredStyle:UIAlertControllerStyle.alert);
         alertView?.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
-        
         self.window?.rootViewController?.present(alertView!, animated: true, completion: nil)
-        
-        return true
     }
 
     // Registers for Remote (Push) Notifications.

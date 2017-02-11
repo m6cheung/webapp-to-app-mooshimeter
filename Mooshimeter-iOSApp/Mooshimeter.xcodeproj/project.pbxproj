@@ -1476,10 +1476,10 @@
 				ORGANIZATIONNAME = mooshim;
 				TargetAttributes = {
 					0C63852817D694DC00D3FB31 = {
-						DevelopmentTeam = HG95VB7FN4;
+						DevelopmentTeam = Y2SU2GT3Q6;
 					};
 					0C63855417D694DD00D3FB31 = {
-						DevelopmentTeam = HG95VB7FN4;
+						DevelopmentTeam = Y2SU2GT3Q6;
 					};
 				};
 			};
@@ -2055,7 +2055,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = HG95VB7FN4;
+				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2067,7 +2067,7 @@
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.omer.Mooshimeter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.michaelC.Mooshimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2086,7 +2086,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = HG95VB7FN4;
+				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mooshimeter/Mooshimeter-Prefix.pch";
@@ -2097,7 +2097,7 @@
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.omer.Mooshimeter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mooshim.michaelC.Mooshimeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2113,7 +2113,7 @@
 			baseConfigurationReference = 891A3261855E4CDC619B6552 /* Pods-MooshimeterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mooshimeter.app/Mooshimeter";
-				DEVELOPMENT_TEAM = HG95VB7FN4;
+				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -2133,7 +2133,7 @@
 			baseConfigurationReference = 555DD33A74E4290328747860 /* Pods-MooshimeterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mooshimeter.app/Mooshimeter";
-				DEVELOPMENT_TEAM = HG95VB7FN4;
+				DEVELOPMENT_TEAM = Y2SU2GT3Q6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
